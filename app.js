@@ -12,6 +12,8 @@ var session = require('express-session');
 var engine  = require( 'ejs-locals' );
 var app = express();
 
+var engine  = require( 'ejs-locals' );
+
 app.set('token', 'R2xhY2llbGxlR2FyY2lhU2l0ZU1LVENvbnRldWRv');
 
 app.set('port', 4300);
@@ -20,7 +22,9 @@ app.set('serverip', process.env.NODE_IP || '127.0.0.1');
 // view engine setup
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'jade');
+app.set('view engine', 'ejs');
+app.set('view options', { layout:'layout.ejs' });
+app.engine( 'ejs', engine );
 
 var allowCrossDomain = function(req, res, next) {
     res.header('Access-Control-Allow-Origin', '*');

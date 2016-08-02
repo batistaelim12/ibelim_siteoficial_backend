@@ -1,0 +1,68 @@
+<script>
+var telefones = new Array();
+function adicionarItem(){
+  var novo = $("#numeroTelefone").val();
+  if(novo == ""){
+    alert("Digite o telefone!");
+    return;
+  }
+  else
+  {
+    $.each(telefones, function( index, value ) {
+      if(novo == value){
+        alert("Telefone já adicionado");
+        return;
+      }
+    });
+    var index = telefones.length;
+    telefones[index] = novo;
+    if(index == 0)
+      $("#tbTelefones tr#semNumeros").css("display", "none");
+
+    $("#hdnNumerosTelefone").val(JSON.stringify(telefones));
+    var button = '<button type="button" class="btn btn-danger" name="removerTelefone" value="ExcluirNumero" onClick="removerTelefoneTabela(';
+    button += ("'" + novo + "'");
+    button += '); return false;">Excluir</button>';
+    $('#tbTelefones > tbody:last').append('<tr><td>' + novo + '</td><td>' + button + '</td></tr>');
+    $("#numeroTelefone").val('');
+    $("#numeroTelefone").focus();
+  }
+}
+
+function removerTelefoneTabela(telefone){
+  var indice = 0;
+  $.each(telefones, function( index, value ) {
+    if(telefone == value){
+      indice = index;
+    } 
+  });
+  $("#tbTelefones tbody tr").eq(indice + 1).remove();
+  telefones.splice(indice, 1);
+  $("#hdnNumerosTelefone").val(JSON.stringify(telefones));
+
+  if(telefones.length == 0)
+    $("#tbTelefones tr#semNumeros").css("display", "table-row");
+  $("#numeroTelefone").focus();
+}
+</script>
+<input type="hidden" id="hdnNumerosTelefone" name="hdnNumerosTelefone" value=""/>
+<div class="form-group">
+  <label for="numeroTelefone">Telefone</label>
+  <input class="form-control" type="text" id="numeroTelefone" name="numeroTelefone" alt="phone9"/>
+</div>
+<div class="form-group">
+  <button type="button" onClick="adicionarItem(); return false;" class="btn btn-success" name="adicionarTelefone" id="adicionarTelefone" value="Gravar">Gravar Telefone</button>
+</div>
+<table id="tbTelefones" class="table table-bordered table-hover">
+  <thead>
+    <tr>
+      <td>Número</td>
+      <td>&nbsp;</td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr id="semNumeros">
+      <td colspan="2">Nenhum Adicionado</td>
+    </tr>
+   </tbody>
+</table>        

@@ -1,0 +1,57 @@
+<div class="form-group">
+  <label for="cep">CEP</label>
+  <input class="form-control" type="text" id="cep" name="Cep" style="width: 40%" alt="cep" <%= enderecoObrigatorio || '' %>/>
+</div>
+<div class="form-group">
+  <label for="rua">Logradouro</label>
+  <input class="form-control" type="text" id="rua" name="Endereco" <%= enderecoObrigatorio || '' %> />
+</div>
+<div class="form-group">
+  <label for="numero_endereco">Número</label>
+  <input class="form-control" type="text" id="numero_endereco" name="NumeroEndereco" <%= enderecoObrigatorio || '' %> />
+</div>
+<div class="form-group">
+  <label for="complemento_endereco">Complemento</label>
+  <input class="form-control" type="text" id="complemento_endereco" name="Complemento" />
+</div>
+<div class="form-group">
+  <label for="Bairro">Bairro</label>
+  <input class="form-control" type="text" id="Bairro" name="Bairro" <%= enderecoObrigatorio || '' %>/>
+</div>
+<div class="form-group">
+  <label for="cidade">Cidade</label>
+  <input class="form-control" type="text" id="cidade" name="Cidade" <%= enderecoObrigatorio || '' %>/>
+</div>
+<div class="form-group">
+  <label for="cep">UF</label>
+  <select class="form-control" id="uf" name="Estado" <%= enderecoObrigatorio || '' %>>
+    <option value="">Selecione</option>
+    <option value="AC">Acre</option>
+    <option value="AL">Alagoas</option>
+    <option value="AP">Amapá</option>
+    <option value="AM">Amazonas</option>
+    <option value="BA">Bahia</option>
+    <option value="CE">Ceará</option>
+    <option value="DF">Distrito Federal</option>
+    <option value="ES">Espirito Santo</option>
+    <option value="GO">Goiás</option>
+    <option value="MA">Maranhão</option>
+    <option value="MS">Mato Grosso do Sul</option>
+    <option value="MT">Mato Grosso</option>
+    <option value="MG">Minas Gerais</option>
+    <option value="PA">Pará</option>
+    <option value="PB">Paraíba</option>
+    <option value="PR">Paraná</option>
+    <option value="PE">Pernambuco</option>
+    <option value="PI">Piauí</option>
+    <option value="RJ">Rio de Janeiro</option>
+    <option value="RN">Rio Grande do Norte</option>
+    <option value="RS">Rio Grande do Sul</option>
+    <option value="RO">Rondônia</option>
+    <option value="RR">Roraima</option>
+    <option value="SC">Santa Catarina</option>
+    <option value="SP">São Paulo</option>
+    <option value="SE">Sergipe</option>
+    <option value="TO">Tocantins</option>    
+  </select>
+</div>

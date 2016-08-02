@@ -1,10 +1,14 @@
 module.exports.restrict = function(req, res, next) {
-  if (req.session.usuario) {
+  	res.locals.nomeUsuario = "";
+  	res.locals.foto = "";
+  	res.locals.tipoUsuario = "";
+  	res.locals.nomePapel = "";  
+  /*if (req.session.usuario) {*/    
     next();
-  } else {
+  /*} else {
     req.session.error = 'Usuário não autenticado!';
     res.redirect('/login');
-  }
+  }*/
 };
 
 module.exports.freeAccess = function (req, res, next) {
